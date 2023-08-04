@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<head>
+
+    <link rel="stylesheet" href="./index.css">
+    
+</head>
+<body>
+
+    <div class="ui">
+        <h2>Threshold 1</h2>
+        <input id="threshold1" type="number" min="0" max="500" onchange="UpdateRules('EdgeThreshold1', this.value)">
+    </div>
+    <div class="ui">
+        <h2>Threshold 2</h2>
+        <input id="threshold2" type="number" min="0" max="500" value="0" onchange="UpdateRules('EdgeThreshold2', this.value)">
+    </div>
+
+    <div>
+        <img id="original" class="image" src="../clients/1/Original.png" >
+        <img id="result" class="image" src="../clients/1/Result.png">
+    </div>
+
+</body>
+
+<script>
+
+async function UpdateRules(rule, val) {
+    console.log(rule);
+    const response = await fetch("http://127.0.0.1:5000/rules", {
+        method: "POST",
+        mode: "cors",
+        cache: "no-cache",
+        credentials: "same-origin",
+        headers: {
+        "Content-Type": "application/json",
+        },
+        referrerPolicy: "no-referrer",
+        body: JSON.stringify({
+            "client": 1, 
+            "rule" : rule,
+            "value": val
+        }),
+    });
+
+    if (response.ok) {
+        let json = await response.json();
+        console.log(json)
+    } else {
+        alert("HTTP-Error: " + response.status);
+    }
+}
+
+async function GetRule(RuleName) {
+
+    response = await fetch("../clients/1/Rules.json")
+    data = await response.json()
+
+    if (RuleName in data) {
+        console.log(data[RuleName])
+        return data[RuleName]
+    } else {
+        response = await fetch("../DefaultRules")
+        data = response.json()
+        console.log(data[RuleName])
+        return data[RuleName]
+    }
+}
+
+function onPageLoad() {
+    threshold2Slider = document.getElementById("threshold2")
+    theshold2 = GetRule("EdgeThreshold2")
+        .then(threshold2Slider.value = (threshold2))
+        //.then(console.log(threshold2))
+}
+
+window.addEventListener("load", onPageLoad)
+
+
+</script>
