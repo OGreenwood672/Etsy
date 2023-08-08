@@ -2,7 +2,8 @@ from flask import Flask, request
 from flask_cors import CORS
 
 import json
-import os
+
+from Photo import Photo
 
 app = Flask(__name__)
 CORS(app)
@@ -31,11 +32,14 @@ def UpdateRules():
     
     with open(f"../clients/{data['client']}/Rules.json", "r") as f:
         CurrentRules = json.load(f)
-        print(data)
         CurrentRules[data["rule"]] = data["value"]
     
     with open(f"../clients/{data['client']}/Rules.json", "w") as f:
         json.dump(CurrentRules, f)
+
+    ClientNumber = 1
+    img = Photo(ClientNumber)
+    img.UpdateImage()
     
     response = app.response_class(
         status=200,
