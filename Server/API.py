@@ -33,13 +33,42 @@ def UpdateRules():
     with open(f"../clients/{data['client']}/Rules.json", "r") as f:
         CurrentRules = json.load(f)
         CurrentRules[data["rule"]] = data["value"]
+        ClientNumber = int(data["client"])
+
     
     with open(f"../clients/{data['client']}/Rules.json", "w") as f:
         json.dump(CurrentRules, f)
 
-    ClientNumber = 1
     img = Photo(ClientNumber)
     img.UpdateImage()
+    
+    response = app.response_class(
+        status=200,
+        mimetype='application/json'
+    )
+
+    return response
+
+@app.route("/cookie", methods=["GET"])
+def GetCookie():
+    
+    with open(f"../cookies.json", "r") as f:
+        cookies = json.load(f)
+
+    return cookies
+
+@app.route("/cookie", methods=["POST"])
+def UpdateCookie():
+    data = request.get_json()
+    
+    with open(f"../cookies.json", "r") as f:
+        cookies = json.load(f)
+
+    if data["cookie"] in cookies.keys():
+        cookies[data["cookie"]] = data["value"]
+    
+    with open(f"../cookies.json", "w") as f:
+        json.dump(cookies, f)
     
     response = app.response_class(
         status=200,

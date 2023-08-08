@@ -9,10 +9,10 @@ class Photo:
         self.image = self.Load()
     
     def Load(self):
-        return cv2.imread(f"./clients/{self.ClientNumber}/Original.png")
+        return cv2.imread(f"../clients/{self.ClientNumber}/Original.png")
 
     def Save(self):
-        cv2.imwrite(f"./clients/{self.ClientNumber}/Original.png", self.image)
+        cv2.imwrite(f"../clients/{self.ClientNumber}/Result.png", self.image)
 
     def ConvertToEdge(self, t1, t2):
         self.image = cv2.Canny(self.image, t1, t2)
@@ -26,12 +26,16 @@ class Photo:
 
         t1 = 0
         if "EdgeThreshold1" in CurrentRules.keys():
-            t1 = CurrentRules["EdgeThreshold1"]
+            t1 = int(CurrentRules["EdgeThreshold1"])
         t2 = 0
         if "EdgeThreshold2" in CurrentRules.keys():
-            t2 = CurrentRules["EdgeThreshold2"]
+            t2 = int(CurrentRules["EdgeThreshold2"])
         if t1 < t2:
             self.ConvertToEdge(t1, t2)
+        
+        if "InvertColours" in CurrentRules.keys():
+            if CurrentRules["InvertColours"]:
+                self.InverseImage()
         
         self.Save()
     
