@@ -1,0 +1,60 @@
+{
+    "name": "Touch Up",
+    "artist": "Mother Mother",
+    "image_url": "https://lastfm.freetls.fastly.net/i/u/300x300/59ffa3a67be14e14ce90bfeeefcd7493.png",
+    "mbid": "53418c3e-466b-4108-b074-563250282ba4",
+    "tracks": [
+        {
+            "name": "Dirty Town",
+            "duration": 152
+        },
+        {
+            "name": "Polynesia",
+            "duration": 139
+        },
+        {
+            "name": "Angry Sea",
+            "duration": 185
+        },
+        {
+            "name": "Oh Ana",
+            "duration": 197
+        },
+        {
+            "name": "Legs Away",
+            "duration": 233
+        },
+        {
+            "name": "Love and Truth",
+            "duration": 215
+        },
+        {
+            "name": "Train of Thought",
+            "duration": 247
+        },
+        {
+            "name": "Verbatim",
+            "duration": 168
+        },
+        {
+            "name": "Neighbour",
+            "duration": 276
+        },
+        {
+            "name": "Ball Cap",
+            "duration": 200
+        },
+        {
+            "name": "Tic Toc",
+            "duration": 91
+        },
+        {
+            "name": "Touch Up",
+            "duration": 227
+        },
+        {
+            "name": "Little Hands",
+            "duration": 147
+        }
+    ]
+}

@@ -4,20 +4,32 @@
     <link rel="stylesheet" href="./index.css">
     
 </head>
-<body>
+<body onload="onPageLoad()">
 
     <div class="ui">
-        <h2>Threshold 1</h2>
-        <input id="threshold1" type="number" min="0" max="500" onchange="UpdateRules('EdgeThreshold1', this.value)">
-    </div>
-    <div class="ui">
-        <h2>Threshold 2</h2>
-        <input id="threshold2" type="number" min="0" max="500" value="0" onchange="UpdateRules('EdgeThreshold2', this.value)">
+        <div>
+            <label for="client">Client: </label>
+            <input id="client" type="number" onchange="UpdateCookie('client', this.value)">
+        </div>
+
+        <div>
+            <label for="invertcolours">Invert Colours</label>
+            <input id="invertcolours" type="checkbox" value="false" onclick="UpdateRules('InvertColours', this.checked)">
+        </div>
+
+        <div>
+            <label>Threshold 1</label>
+            <input id="threshold1" type="range" min="0" max="300" value="0" onchange="UpdateRules('EdgeThreshold1', this.value)">
+        </div>
+        <div class="ui">
+            <label>Threshold 2</label>
+            <input id="threshold2" type="range" min="0" max="300" value="0" onchange="UpdateRules('EdgeThreshold2', this.value)">
+        </div>
     </div>
 
     <div>
-        <img id="original" class="image" src="../clients/1/Original.png" >
-        <img id="result" class="image" src="../clients/1/Result.png">
+        <img id="result" class="image">
+        <img id="original" class="image">
     </div>
 
 </body>
@@ -25,18 +37,20 @@
 <script>
 
 async function UpdateRules(rule, val) {
-    console.log(rule);
+
+    ClientNumber = await GetCookie("client");
+
     const response = await fetch("http://127.0.0.1:5000/rules", {
         method: "POST",
         mode: "cors",
         cache: "no-cache",
         credentials: "same-origin",
         headers: {
-        "Content-Type": "application/json",
+            "Content-Type": "application/json",
         },
         referrerPolicy: "no-referrer",
         body: JSON.stringify({
-            "client": 1, 
+            "client": ClientNumber, 
             "rule" : rule,
             "value": val
         }),
@@ -44,36 +58,84 @@ async function UpdateRules(rule, val) {
 
     if (response.ok) {
         let json = await response.json();
-        console.log(json)
     } else {
         alert("HTTP-Error: " + response.status);
     }
 }
 
-async function GetRule(RuleName) {
+async function GetRuleValue(RuleName) {
 
-    response = await fetch("../clients/1/Rules.json")
-    data = await response.json()
+    ClientNumber = await GetCookie("client");
+
+    response = await fetch(`../clients/${ClientNumber}/Rules.json`);
+    data = await response.json();
 
     if (RuleName in data) {
-        console.log(data[RuleName])
-        return data[RuleName]
+        return data[RuleName];
     } else {
-        response = await fetch("../DefaultRules")
-        data = response.json()
-        console.log(data[RuleName])
-        return data[RuleName]
+        response = await fetch("../DefaultRules");
+        data = response.json();
+        return data[RuleName];
     }
 }
 
-function onPageLoad() {
-    threshold2Slider = document.getElementById("threshold2")
-    theshold2 = GetRule("EdgeThreshold2")
-        .then(threshold2Slider.value = (threshold2))
-        //.then(console.log(threshold2))
+async function GetCookie(cookie) {
+
+    response = await fetch(`http://127.0.0.1:5000/cookie`);
+    data = await response.json();
+
+    return data[cookie];
 }
 
-window.addEventListener("load", onPageLoad)
+async function UpdateCookie(cookie, val) {
+
+    const response = await fetch("http://127.0.0.1:5000/cookie", {
+        method: "POST",
+        mode: "cors",
+        cache: "no-cache",
+        credentials: "same-origin",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        referrerPolicy: "no-referrer",
+        body: JSON.stringify({
+            "cookie": cookie,
+            "value": val
+        }),
+    });
+
+    if (response.ok) {
+        let json = await response.json();
+    } else {
+        alert("HTTP-Error: " + response.status);
+    }
+}
+
+async function onPageLoad() {
+
+    ClientInput = document.getElementById("client");
+    client = await GetCookie("client");
+    ClientInput.value = client;
+
+    OriginalImg = document.getElementById("original");
+    OriginalImg.src = `../clients/${client}/Original.png`;
+
+    ResultImg = document.getElementById("result");
+    ResultImg.src = `../clients/${client}/Result.png`;
+
+    threshold1Slider = document.getElementById("threshold1");
+    t1 = await GetRuleValue("EdgeThreshold1");
+    threshold1Slider.value = t1;
+
+    threshold2Slider = document.getElementById("threshold2");
+    t2 = await GetRuleValue("EdgeThreshold2");
+    threshold2Slider.value = t2;
+
+    InvertCheck = document.getElementById("invertcolours");
+    ic = await GetRuleValue("InvertColours");
+    InvertCheck.checked = ic;
+}
+
 
 
 </script>

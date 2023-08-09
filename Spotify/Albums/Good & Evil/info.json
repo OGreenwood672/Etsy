@@ -1,0 +1,64 @@
+{
+    "name": "Good & Evil",
+    "artist": "Tally Hall",
+    "image_url": "https://lastfm.freetls.fastly.net/i/u/300x300/437855e88d00414f92807cf2ff7fd088.png",
+    "mbid": "0feb57c5-0bb5-4787-8313-f03d7d897822",
+    "tracks": [
+        {
+            "name": "Never Meant To Know",
+            "duration": 220
+        },
+        {
+            "name": "&",
+            "duration": 195
+        },
+        {
+            "name": "You & Me",
+            "duration": 169
+        },
+        {
+            "name": "Cannibal",
+            "duration": 208
+        },
+        {
+            "name": "Who You Are",
+            "duration": 221
+        },
+        {
+            "name": "Sacred Beast",
+            "duration": 142
+        },
+        {
+            "name": "Hymn For A Scarecrow",
+            "duration": 290
+        },
+        {
+            "name": "A Lady",
+            "duration": 65
+        },
+        {
+            "name": "The Trap",
+            "duration": 272
+        },
+        {
+            "name": "Turn The Lights Off",
+            "duration": 176
+        },
+        {
+            "name": "Misery Fell",
+            "duration": 215
+        },
+        {
+            "name": "Out in the Twilight",
+            "duration": 172
+        },
+        {
+            "name": "You",
+            "duration": 178
+        },
+        {
+            "name": "Fate Of The Stars",
+            "duration": 411
+        }
+    ]
+}
