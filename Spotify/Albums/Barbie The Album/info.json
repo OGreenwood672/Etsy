@@ -1,0 +1,76 @@
+{
+    "name": "Barbie The Album",
+    "artist": "Various Artists",
+    "image_url": "https://lastfm.freetls.fastly.net/i/u/300x300/b61c63b342f0d977afda5a43e3d1b323.png",
+    "mbid": "",
+    "tracks": [
+        {
+            "name": "Pink",
+            "duration": 144
+        },
+        {
+            "name": "Dance the Night",
+            "duration": 176
+        },
+        {
+            "name": "Barbie World (with Aqua)",
+            "duration": 109
+        },
+        {
+            "name": "Speed Drive",
+            "duration": 118
+        },
+        {
+            "name": "WATATI (feat. Aldo Ranks)",
+            "duration": 85
+        },
+        {
+            "name": "Man I Am",
+            "duration": 188
+        },
+        {
+            "name": "Journey to the Real World",
+            "duration": 88
+        },
+        {
+            "name": "I\u2019m Just Ken",
+            "duration": 223
+        },
+        {
+            "name": "Hey Blondie",
+            "duration": 142
+        },
+        {
+            "name": "Home",
+            "duration": 226
+        },
+        {
+            "name": "What Was I Made For?",
+            "duration": 222
+        },
+        {
+            "name": "Forever & Again",
+            "duration": 139
+        },
+        {
+            "name": "Silver Platter",
+            "duration": 166
+        },
+        {
+            "name": "Angel",
+            "duration": 124
+        },
+        {
+            "name": "butterflies",
+            "duration": 136
+        },
+        {
+            "name": "Choose Your Fighter",
+            "duration": 138
+        },
+        {
+            "name": "Barbie Dreams (feat. Kaliii)",
+            "duration": 149
+        }
+    ]
+}

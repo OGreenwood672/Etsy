@@ -43,6 +43,22 @@ def AddCoverArt(img, cover, width, height, x, y):
     img.paste(cover, (left, top))
     return img
 
+def GetDefaultColour(cover):
+    r = g = b = 0
+    w, h = cover.size
+    for w_pixel in range(w):
+        for h_pixel in range(h):
+            rgb = cover.getpixel((w_pixel, h_pixel))
+            r += rgb[0]
+            g += rgb[1]
+            b += rgb[2]
+    area = w*h
+    r /= area
+    g /= area
+    b /= area
+    return int(r), int(g), int(b), 255
+
+
 def AddText(img, text, x, y, FontType, TextColour, size, capwidth=False):
 
     draw = ImageDraw.Draw(img)
@@ -113,27 +129,35 @@ HEIGHT = 3508
 CREAM = 249,226,177,255
 WHITE = 255,255,255,255
 RED = 160,00,0,255
+PINK = 255,204,255,255
+DEFAULT = -1
+COMPLEMENTARY = -2
 
 BLACK = 0,0,0,0
 
 DarkColours = [RED]
 
-content = "Albums"
-name = "Speak Your Mind (Deluxe)"
-colour = CREAM
+# content = "Albums"
+# name = "FOlKlORE"
+# colour = COMPLEMENTARY
 
 import GetInfo
 
 if __name__ == "__main__":
 
-    # content, name = GetInfo.main()
-    # colour = eval(input("Choose colour: ").upper())
+    content, name = GetInfo.main()
+    colour = eval(input("Choose colour: ").upper())
 
     info = load(content, name)
 
-    img = MakeBase(WIDTH, HEIGHT, colour)
-
     cover = GetCover(content, name)
+    if colour == DEFAULT:
+        colour = GetDefaultColour(cover)
+    elif colour == COMPLEMENTARY:
+        r, g, b, a = GetDefaultColour(cover)
+        colour = 255 - r, 255 - g, 255 - b, a
+
+    img = MakeBase(WIDTH, HEIGHT, colour)
     
     img = AddCoverArt(img, cover, WIDTH * 0.82, WIDTH * 0.82, WIDTH * 0.5, WIDTH * 0.5)
 

@@ -1,0 +1,68 @@
+{
+    "name": "Romance is Boring",
+    "artist": "Los Campesinos!",
+    "image_url": "https://lastfm.freetls.fastly.net/i/u/300x300/525eaad0713047ddc79cfe5d2208ad93.png",
+    "mbid": "49ce3764-5fc5-4f11-98e5-0bbd0198ace3",
+    "tracks": [
+        {
+            "name": "In Medias Res",
+            "duration": 282
+        },
+        {
+            "name": "There Are Listed Buildings",
+            "duration": 175
+        },
+        {
+            "name": "Romance Is Boring",
+            "duration": 153
+        },
+        {
+            "name": "We've Got Your Back",
+            "duration": 269
+        },
+        {
+            "name": "Plan A",
+            "duration": 122
+        },
+        {
+            "name": "200-102",
+            "duration": 53
+        },
+        {
+            "name": "Straight In At 101",
+            "duration": 235
+        },
+        {
+            "name": "Who Fell Asleep In",
+            "duration": 251
+        },
+        {
+            "name": "I Warned You: Do Not Make an Enemy of Me",
+            "duration": 167
+        },
+        {
+            "name": "Heart Swells/100-1",
+            "duration": 46
+        },
+        {
+            "name": "I Just Sighed. I Just Sighed, Just so You Know",
+            "duration": 277
+        },
+        {
+            "name": "A Heat Rash In the Shape of the Show Me State; or, Letters from Me to Charlotte",
+            "duration": 223
+        },
+        {
+            "name": "The Sea Is a Good Place to Think of the Future",
+            "duration": 266
+        },
+        {
+            "name": "This Is a Flag. There Is No Wind",
+            "duration": 208
+        },
+        {
+            "name": "Coda: A Burn Scar In the Shape of the Sooner State",
+            "duration": 172
+        }
+    ]
+}

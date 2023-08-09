@@ -1,0 +1,48 @@
+{
+    "name": "The Normal Album",
+    "artist": "Will Wood",
+    "image_url": "https://lastfm.freetls.fastly.net/i/u/300x300/d4b95776189e3985174cfa22938642dc.png",
+    "mbid": "",
+    "tracks": [
+        {
+            "name": "Suburbia Overture / Greetings from Mary Bell Township! / (Vampire) Culture / Love Me, Normally",
+            "duration": 377
+        },
+        {
+            "name": "2econd-2ight-2eer (that was fun, goodbye.)",
+            "duration": 207
+        },
+        {
+            "name": "Laplace's Angel (Hurt People? Hurt People!)",
+            "duration": 241
+        },
+        {
+            "name": "I / Me / Myself",
+            "duration": 280
+        },
+        {
+            "name": "...well, better than the alternative",
+            "duration": 255
+        },
+        {
+            "name": "Outliars and Hyppocrates: a fun fact about apples",
+            "duration": 253
+        },
+        {
+            "name": "Black Box Warrior - OKULTRA",
+            "duration": 294
+        },
+        {
+            "name": "Marsha, Thankk You for the Dialectics, but I Need You to Leave.",
+            "duration": 320
+        },
+        {
+            "name": "Love, Me Normally",
+            "duration": 383
+        },
+        {
+            "name": "Memento Mori: the most important thing in the world",
+            "duration": 170
+        }
+    ]
+}

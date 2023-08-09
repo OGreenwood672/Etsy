@@ -1,0 +1,76 @@
+{
+    "name": "FOlKlORE",
+    "artist": "Taylor Swift",
+    "image_url": "https://lastfm.freetls.fastly.net/i/u/300x300/b8da93ab6d8aa00384998fdae7451d92.png",
+    "mbid": "",
+    "tracks": [
+        {
+            "name": "the 1",
+            "duration": 206
+        },
+        {
+            "name": "cardigan",
+            "duration": 239
+        },
+        {
+            "name": "the last great american dynasty",
+            "duration": 243
+        },
+        {
+            "name": "exile",
+            "duration": 297
+        },
+        {
+            "name": "my tears ricochet",
+            "duration": null
+        },
+        {
+            "name": "mirrorball",
+            "duration": null
+        },
+        {
+            "name": "seven",
+            "duration": 208
+        },
+        {
+            "name": "august",
+            "duration": null
+        },
+        {
+            "name": "this is me trying",
+            "duration": null
+        },
+        {
+            "name": "illicit affairs",
+            "duration": null
+        },
+        {
+            "name": "invisible string",
+            "duration": null
+        },
+        {
+            "name": "mad woman",
+            "duration": null
+        },
+        {
+            "name": "epiphany",
+            "duration": null
+        },
+        {
+            "name": "betty",
+            "duration": null
+        },
+        {
+            "name": "peace",
+            "duration": null
+        },
+        {
+            "name": "hoax",
+            "duration": null
+        },
+        {
+            "name": "the lakes",
+            "duration": 211
+        }
+    ]
+}

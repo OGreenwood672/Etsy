@@ -72,7 +72,7 @@ def GetAlbum(title, artist):
     path = os.getcwd()
     AlbumPath = path + f"\\Albums"
     if info['name'] not in os.listdir(AlbumPath):
-        os.mkdir(AlbumPath + f"\\{info['name']}")
+        os.mkdir(AlbumPath + f"\{info['name']}")
     
     tracks = GetAlbumTracks(info["mbid"], info["name"], info["artist"])
     info["tracks"] = tracks

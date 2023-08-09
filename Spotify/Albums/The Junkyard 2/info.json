@@ -1,0 +1,48 @@
+{
+    "name": "The Junkyard 2",
+    "artist": "Penelope Scott",
+    "image_url": "https://lastfm.freetls.fastly.net/i/u/300x300/cb3be756bf32164a84841253fce09f33.png",
+    "mbid": "",
+    "tracks": [
+        {
+            "name": "Sweet Hibiscus Tea",
+            "duration": 145
+        },
+        {
+            "name": "American Healthcare",
+            "duration": 269
+        },
+        {
+            "name": "Lavender",
+            "duration": 136
+        },
+        {
+            "name": "Baxter 3rd Is Under Fucking Siege",
+            "duration": 147
+        },
+        {
+            "name": "Mommy Fwiend",
+            "duration": 210
+        },
+        {
+            "name": "You Should Know",
+            "duration": 93
+        },
+        {
+            "name": "Hammerhead",
+            "duration": 166
+        },
+        {
+            "name": "Lukewarm",
+            "duration": 113
+        },
+        {
+            "name": "Montreal",
+            "duration": 213
+        },
+        {
+            "name": "Phones",
+            "duration": 134
+        }
+    ]
+}
