@@ -1,0 +1,72 @@
+{
+    "name": "Parklife",
+    "artist": "Blur",
+    "image_url": "https://lastfm.freetls.fastly.net/i/u/300x300/19e7df241eead2786c81e5f50c4f3364.png",
+    "mbid": "4ccd12b3-4bd0-4fdb-b85b-716d4f5b1d49",
+    "tracks": [
+        {
+            "name": "Girls & Boys",
+            "duration": 256
+        },
+        {
+            "name": "Tracy Jacks",
+            "duration": null
+        },
+        {
+            "name": "End of a Century",
+            "duration": 164
+        },
+        {
+            "name": "Parklife",
+            "duration": 185
+        },
+        {
+            "name": "Bank Holiday",
+            "duration": null
+        },
+        {
+            "name": "Badhead",
+            "duration": null
+        },
+        {
+            "name": "The Debt Collector",
+            "duration": null
+        },
+        {
+            "name": "Far Out",
+            "duration": null
+        },
+        {
+            "name": "To the End",
+            "duration": null
+        },
+        {
+            "name": "London Loves",
+            "duration": null
+        },
+        {
+            "name": "Trouble in the Message Centre",
+            "duration": null
+        },
+        {
+            "name": "Clover Over Dover",
+            "duration": null
+        },
+        {
+            "name": "Magic America",
+            "duration": null
+        },
+        {
+            "name": "Jubilee",
+            "duration": null
+        },
+        {
+            "name": "This Is a Low",
+            "duration": null
+        },
+        {
+            "name": "Lot 105",
+            "duration": null
+        }
+    ]
+}

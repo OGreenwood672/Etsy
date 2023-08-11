@@ -69,12 +69,12 @@ def AddText(img, text, x, y, FontType, TextColour, size, capwidth=False):
         size *= 0.95
         text_font = ImageFont.truetype(f"Fonts\Panton-{FontType}.otf", int(size))
         w, h = get_dimensions_of_text(draw, text, text_font)
-        
+
     draw.text((x, y - h / 2), text, TextColour, font=text_font)
 
     return img
 
-def AddAlbumInfo(img, info, isDark):
+def AddAlbumInfo(img, info, isDark, option=3):
 
     img = AddText(
         img,
@@ -97,22 +97,50 @@ def AddAlbumInfo(img, info, isDark):
         105
     )
 
-    LeftMargin = 0
-    for index, track in enumerate(info["tracks"]):
-        pos = index
-        if (index >= len(info["tracks"]) / 2):
-            index -= ceil(len(info["tracks"]) / 2)
-            LeftMargin = WIDTH * 0.4
+    FontType = "Bold" if isDark else "Regular"
+    ColumnSize = 80 - len(info["tracks"])
+    SpecialSize = 53 - len(info["tracks"])
 
-        img = AddText(
-            img,
-            f"{pos + 1}. {track['name']}",
-            LeftMargin + WIDTH * 0.08,
-            HEIGHT * 0.78 + HEIGHT * (0.203 / (ceil(len(info["tracks"]) / 2))) * index,
-            "Bold" if isDark else "Regular",
-            BLACK,
-            80 - len(info["tracks"])
-        )
+    if option == 3:
+        draw = ImageDraw.Draw(img)
+        maxw = 0
+        for track in info["tracks"]:
+            text_font = ImageFont.truetype(f"Fonts\Panton-{FontType}.otf", ColumnSize)
+            w, _ = get_dimensions_of_text(draw, track["name"], text_font)
+            if w > maxw: maxw = w
+        if maxw > WIDTH * 0.365:
+            option = 2
+        else: option = 1
+    
+    if option == 1:
+        LeftMargin = 0
+        for index, track in enumerate(info["tracks"]):
+            pos = index
+            if (index >= len(info["tracks"]) / 2):
+                index -= ceil(len(info["tracks"]) / 2)
+                LeftMargin = WIDTH * 0.4
+
+            img = AddText(
+                img,
+                f"{pos + 1}. {track['name']}",
+                LeftMargin + WIDTH * 0.08,
+                HEIGHT * 0.78 + HEIGHT * (0.203 / (ceil(len(info["tracks"]) / 2))) * index,
+                FontType,
+                BLACK,
+                ColumnSize
+            )
+    else:
+        for index, track in enumerate(info["tracks"]):
+
+            img = AddText(
+                img,
+                f"{index + 1}. {track['name']}",
+                WIDTH * 0.05,
+                HEIGHT * 0.78 + HEIGHT * (0.203 / len(info["tracks"])) * index,
+                "Bold",
+                BLACK,
+                SpecialSize
+            )
 
 
     return img
@@ -137,9 +165,14 @@ BLACK = 0,0,0,0
 
 DarkColours = [RED]
 
+COLUMNS = 1
+SPECIAL = 2
+AUTO = 3
+
 # content = "Albums"
-# name = "FOlKlORE"
-# colour = COMPLEMENTARY
+# name = "Good & Evil"
+# colour = WHITE
+# format = AUTO
 
 import GetInfo
 
@@ -147,6 +180,7 @@ if __name__ == "__main__":
 
     content, name = GetInfo.main()
     colour = eval(input("Choose colour: ").upper())
+    format = eval(input("Would you like the format COLUMNS or SPECIAL: ").upper())
 
     info = load(content, name)
 
@@ -161,6 +195,6 @@ if __name__ == "__main__":
     
     img = AddCoverArt(img, cover, WIDTH * 0.82, WIDTH * 0.82, WIDTH * 0.5, WIDTH * 0.5)
 
-    img = AddAlbumInfo(img, info, colour in DarkColours)
+    img = AddAlbumInfo(img, info, colour in DarkColours, format)
 
     save(img, content, name)

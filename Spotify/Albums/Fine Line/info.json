@@ -1,0 +1,56 @@
+{
+    "name": "Fine Line",
+    "artist": "Harry Styles",
+    "image_url": "https://lastfm.freetls.fastly.net/i/u/300x300/7de796d102c513bc59f75f7e8850b84a.png",
+    "mbid": "",
+    "tracks": [
+        {
+            "name": "Golden",
+            "duration": 207
+        },
+        {
+            "name": "Watermelon Sugar",
+            "duration": 174
+        },
+        {
+            "name": "Adore You",
+            "duration": 224
+        },
+        {
+            "name": "Lights Up",
+            "duration": 172
+        },
+        {
+            "name": "Cherry",
+            "duration": 259
+        },
+        {
+            "name": "Falling",
+            "duration": null
+        },
+        {
+            "name": "To Be So Lonely",
+            "duration": 192
+        },
+        {
+            "name": "She",
+            "duration": 362
+        },
+        {
+            "name": "Sunflower, Vol. 6",
+            "duration": 221
+        },
+        {
+            "name": "Canyon Moon",
+            "duration": 189
+        },
+        {
+            "name": "Treat People With Kindness",
+            "duration": 197
+        },
+        {
+            "name": "Fine Line",
+            "duration": 377
+        }
+    ]
+}

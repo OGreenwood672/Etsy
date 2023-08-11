@@ -43,21 +43,21 @@ def Search(content, name, bonus_artist=None):
 
     return r.json()["results"][f"{content}matches"][content][0]
 
-def GetTrack(title, artist):
-    track = Search("track", title, artist)
+# def GetTrack(title, artist):
+#     track = Search("track", title, artist)
 
-    info = {
-        "name": track["name"],
-        "artist": track["artist"]
-    }
+#     info = {
+#         "name": track["name"],
+#         "artist": track["artist"]
+#     }
 
-    path = os.getcwd()
-    SongPath = path + f"\\Spotify\\Songs"
-    if info['name'] not in os.listdir(SongPath):
-        os.mkdir(SongPath + "\\{info['name']}")
+#     path = os.getcwd()
+#     SongPath = path + f"\\Spotify\\Songs"
+#     if info['name'] not in os.listdir(SongPath):
+#         os.mkdir(SongPath + "\\{info['name']}")
 
-    with open(SongPath + f"\\{info['name']}\\info.json", "w") as f:
-        json.dump(info, f, indent=4)
+#     with open(SongPath + f"\\{info['name']}\\info.json", "w") as f:
+#         json.dump(info, f, indent=4)
 
 def GetAlbum(title, artist):
     album = Search("album", title, artist)
@@ -89,19 +89,18 @@ def GetAlbum(title, artist):
 
 def main():
 
-
-    choice = input("Track or Album?: ").lower()
+    # choice = input("Track or Album?: ").lower()
 
     artist = input("Who is the artist?: ")
     
-    if choice == "track":
-        title = input("What is the title of the track?: ")
-        GetTrack(title, artist)
+    # if choice == "track":
+    #     title = input("What is the title of the track?: ")
+    #     GetTrack(title, artist)
 
-    elif choice == "album":
-        album = input("What is the title of the album?:")
-        name = GetAlbum(album, artist)
-        return "Albums", name
+    # elif choice == "album":
+    album = input("What is the title of the album?:")
+    name = GetAlbum(album, artist)
+    return "Albums", name
 
 
 if __name__ == "__main__":
